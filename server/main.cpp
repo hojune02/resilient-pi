@@ -17,6 +17,20 @@ int main() {
         return -1;
     }
 
+    //2.5 use setsocketopt for SO_REUSEADDR
+
+    int reuse = 1;
+
+    if (setsockopt(
+            s,
+            SOL_SOCKET,
+            SO_REUSEADDR,
+            &reuse,
+            sizeof(reuse)) == -1) {
+        std::perror("setsockopt");
+        close(s);
+        return 1;
+    }
     // 3. create sockaddr_in
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
