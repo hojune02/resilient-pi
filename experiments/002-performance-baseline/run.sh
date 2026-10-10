@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-HOST="110.76.76.127"
+HOST="${HOST:-127.0.0.1}"
 URL="http://${HOST}:8080/health"
 
 THREADS=2
