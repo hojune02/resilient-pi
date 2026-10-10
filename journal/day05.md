@@ -130,3 +130,6 @@ TODO — name one concrete change in procedure, one metric to capture, and the r
 - **Systems/infra CV:** TODO — select verified claims about Linux process supervision, system metrics, recovery and experiment design.
 - **C++/trading CV:** TODO — select verified claims about POSIX sockets, blocking I/O, concurrency trade-offs, latency measurements and reproducible benchmarking.
 - **Accuracy check:** Do not claim a throughput optimization, reduced p99, or worker-pool implementation before it has actually been measured or built.
+Hypothesis A — Logging overhead: Request-by-request output adds synchronous work and logging-system overhead.
+Hypothesis B — Sequential request handling: Even with a one-second receive timeout, processing one client at a time may limit throughput and increase latency.
+Hypothesis C — Network overhead: The transport path significantly affects measured throughput independently of application changes.
