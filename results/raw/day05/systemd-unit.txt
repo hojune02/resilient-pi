@@ -1,0 +1,19 @@
+# /etc/systemd/system/resilient-pi.service
+[Unit]
+Description=Resilient Pi C++ HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User=hojune
+WorkingDirectory=/home/hojune/projects/resilient-pi/server
+ExecStart=/home/hojune/projects/resilient-pi/server/server
+
+Restart=on-failure
+RestartSec=2
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

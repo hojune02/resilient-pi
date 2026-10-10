@@ -1,0 +1,103 @@
+Linux 6.8.0-1065-raspi (resilient-pi) 	10/10/26 	_aarch64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:53     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:54     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:55     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:56     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:57     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:58     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:01:59     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:00     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:01     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:02     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:03     1000      5196    0.00    0.00    0.00    0.00    0.00     1      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:04     1000      5196    0.00    7.00    0.00    3.00    7.00     1      0.00      0.00    5708    2816   0.04    146.00    101.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:05     1000      5196    1.00   10.00    0.00    6.00   11.00     0      0.00      0.00    5708    2816   0.04    233.00    193.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:06     1000      5196    1.00   12.00    0.00    7.00   13.00     1      0.00      0.00    5708    2816   0.04    291.00    171.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:07     1000      5196    1.00   10.00    0.00    6.00   11.00     2      0.00      0.00    5708    2816   0.04    280.00    131.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:08     1000      5196    0.00   10.00    0.00    6.00   10.00     3      0.00      0.00    5708    2816   0.04    264.00     85.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:09     1000      5196    1.00   12.00    0.00    7.00   13.00     2      0.00      0.00    5708    2816   0.04    303.00    153.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:10     1000      5196    1.00   10.00    0.00    5.00   11.00     1      0.00      0.00    5708    2816   0.04    259.00    125.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:11     1000      5196    1.00   10.00    0.00    6.00   11.00     3      0.00      0.00    5708    2816   0.04    237.00    156.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:12     1000      5196    2.00   11.00    0.00    7.00   13.00     0      0.00      0.00    5708    2816   0.04    262.00    107.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:13     1000      5196    1.00   12.00    0.00    7.00   13.00     1      0.00      0.00    5708    2816   0.04    315.00    183.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:14     1000      5196    1.00   10.00    0.00    6.00   11.00     1      0.00      0.00    5708    2816   0.04    306.00    127.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:15     1000      5196    1.00   11.00    0.00    6.00   12.00     2      0.00      0.00    5708    2816   0.04    241.00    185.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:16     1000      5196    1.00   10.00    0.00    7.00   11.00     1      0.00      0.00    5708    2816   0.04    272.00    148.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:17     1000      5196    1.00   12.00    0.00    6.00   13.00     3      0.00      0.00    5708    2816   0.04    298.00    171.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:18     1000      5196    1.00   11.00    0.00    7.00   12.00     1      0.00      0.00    5708    2816   0.04    287.00    108.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:19     1000      5196    1.00    6.00    0.00    3.00    7.00     0      0.00      0.00    5708    2816   0.04    148.00    109.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:20     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:21     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:22     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:23     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:24     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:25     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM   cswch/s nvcswch/s  Command
+10:02:26     1000      5196    0.00    0.00    0.00    0.00    0.00     0      0.00      0.00    5708    2816   0.04      0.00      0.00  server

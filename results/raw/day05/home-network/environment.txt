@@ -1,0 +1,11 @@
+2026-10-10T10:02:56+09:00
+resilient-pi
+192.168.0.57 100.92.165.63 fd7a:115c:a1e0::be28:a540 
+default via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.57 metric 600 
+168.126.63.1 via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.57 metric 600 
+168.126.63.2 via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.57 metric 600 
+192.168.0.0/24 dev wlan0 proto kernel scope link src 192.168.0.57 metric 600 
+192.168.0.1 dev wlan0 proto dhcp scope link src 192.168.0.57 metric 600 
+Linux resilient-pi 6.8.0-1065-raspi #69-Ubuntu SMP PREEMPT_DYNAMIC Tue Sep  8 18:10:10 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+MainPID=5196
+ActiveState=active
