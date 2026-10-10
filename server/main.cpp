@@ -7,6 +7,10 @@
 #include <iostream>
 #include <string>
 
+
+// V1 to resolve availability issue when handling client A is blocked at recv()
+#include <sys/time.h>
+
 int main() {
     // 1. socket()
     int s = socket(AF_INET, SOCK_STREAM, 0);
@@ -65,6 +69,22 @@ int main() {
 
         if (client_fd == -1){
             std::perror("accept");
+            continue;
+        }
+ 
+        // V1. set SO_RCVTIMEO for client_fd
+        timeval timeout{};
+        timeout.tv_sec = 1;
+        timeout.tv_usec = 0;
+
+        if (setsockopt(
+                client_fd,
+                SOL_SOCKET,
+                SO_RCVTIMEO,
+                &timeout,
+                sizeof(timeout)) == -1) {
+            std::perror("setsockopt SO_RCVTIMEO");
+            close(client_fd);
             continue;
         }
 
