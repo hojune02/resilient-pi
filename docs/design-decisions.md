@@ -55,3 +55,43 @@ Neither CPU saturation of the application process nor memory exhaustion has been
 Preserve the current V1 implementation as the baseline for subsequent concurrency-architecture comparisons.
 
 Investigate application logging overhead and bounded concurrent request handling in separate, versioned experiments rather than attributing all performance limitations to a single component.
+
+## DDR-002: Bounded Worker Pool vs Single-Threaded Server
+
+**Status:** Provisional — awaiting direct-Ethernet validation and overload measurements.
+
+### Problem
+
+A single blocking request-handling thread allows one slow client to delay unrelated clients. A receive timeout bounds individual receive waits but does not provide concurrent request execution.
+
+### Alternatives evaluated
+
+- V1: Single-threaded blocking server
+- V2: Four-worker bounded thread pool with 64-entry application queue
+
+### Evidence
+
+V2 passed initial functional and slow-client-isolation tests. However, in a three-trial-per-configuration benchmark over the KAIST network, V2 delivered lower mean throughput than V1 across all five tested concurrency levels.
+
+At 100 concurrent connections, V1 averaged 198.50 req/s, while V2 averaged 123.58 req/s. One V2 trial reported seven socket errors.
+
+### Decision
+
+Keep both architectures available for reproducible experimentation.
+
+Prefer V1 where minimal implementation complexity and the observed throughput are primary concerns and slow-client interference is acceptable.
+
+Prefer further development of V2 where client isolation, bounded concurrency, and explicit overload handling are requirements.
+
+Neither implementation is considered production-ready.
+
+### Trade-offs
+
+V2 introduces worker scheduling, synchronization, memory overhead, and more complex shutdown and overload behavior. These costs must be justified by demonstrated reliability benefits and further performance measurements.
+
+### Follow-up
+
+- Direct-Ethernet architecture comparison
+- Verified queue-capacity and rejection testing
+- Logging overhead investigation
+- Worker-count sensitivity analysis
