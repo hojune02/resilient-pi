@@ -95,3 +95,183 @@ V2 introduces worker scheduling, synchronization, memory overhead, and more comp
 - Verified queue-capacity and rejection testing
 - Logging overhead investigation
 - Worker-count sensitivity analysis
+
+---
+
+## DDR-003: Reuse a PostgreSQL Connection with Explicit Failure Recovery
+
+**Status:** Accepted for Day 7 prototype  
+**Date:** 2026-10-13  
+**Related experiment:** `005-postgres-persistence`
+
+### Context
+
+The Day 7 persistent HTTP server introduces a PostgreSQL dependency.
+
+The application uses a single-threaded request-handling loop and executes database operations through `libpq`.
+
+The primary requirements are:
+
+- Preserve committed state across process restarts.
+- Avoid unnecessary database connection establishment.
+- Handle temporary PostgreSQL unavailability.
+- Recover database connectivity without restarting the C++ application.
+- Avoid unsafe retries of non-idempotent transactions.
+
+### Problem
+
+The initial implementation established one PostgreSQL connection at application startup and reused it across requests.
+
+When PostgreSQL was stopped, database-backed requests returned HTTP 503 while the HTTP process remained alive.
+
+After PostgreSQL restarted, the application continued returning HTTP 503 because its existing `PGconn` was no longer usable.
+
+The PostgreSQL process recovered, but the dependent application did not.
+
+### Alternatives Considered
+
+#### A. Open a new connection for every HTTP request
+
+Advantages:
+
+- Each request obtains a fresh database connection.
+- Failed connections are less likely to persist between requests.
+
+Disadvantages:
+
+- Connection establishment and authentication occur repeatedly.
+- PostgreSQL must manage additional backend process churn.
+- Resource usage can increase with request rate.
+
+This alternative was not implemented or benchmarked.
+
+#### B. Reuse one connection without recovery
+
+Advantages:
+
+- Minimal implementation complexity.
+- Avoids repeated connection establishment.
+- Appropriate when database availability is stable.
+
+Disadvantages:
+
+- Database restart can permanently invalidate the connection.
+- Application recovery may require a process restart.
+
+This was the initial implementation and demonstrated a real recovery failure.
+
+#### C. Reuse one connection with explicit recovery
+
+Advantages:
+
+- Retains connection reuse.
+- Allows the application to recover from observed PostgreSQL restarts.
+- Fits the current single-threaded architecture.
+- Requires minimal additional synchronization.
+
+Disadvantages:
+
+- Reconnection attempts can add request latency.
+- Repeated failures may trigger repeated connection attempts.
+- Ambiguous transaction outcomes still require special treatment.
+- Does not support multiple simultaneous database operations.
+
+This alternative was implemented and tested.
+
+#### D. Bounded database connection pool
+
+Advantages:
+
+- Supports concurrent database operations.
+- Bounds connection growth.
+- Reduces connection-establishment churn.
+
+Disadvantages:
+
+- Requires acquisition, release, timeout and recovery policies.
+- Adds synchronization and queueing complexity.
+- Introduces additional connection-management failure cases.
+
+This alternative is deferred until the HTTP architecture requires concurrent database access.
+
+### Decision
+
+Use one persistent PostgreSQL connection for the single-threaded Day 7 HTTP server.
+
+Before starting a new database operation, inspect the connection state and establish a replacement connection if the existing connection is invalid.
+
+Return HTTP 503 when database operations cannot complete.
+
+Do not automatically repeat a transaction after it has begun if its commit outcome may be unknown.
+
+Keep connection recovery and transaction retry as separate concerns.
+
+### Evidence
+
+The initial implementation reproduced the following failure:
+
+1. PostgreSQL was stopped.
+2. Database-backed HTTP operations returned HTTP 503.
+3. The HTTP process remained running.
+4. PostgreSQL restarted successfully.
+5. Database-backed HTTP operations continued returning HTTP 503.
+
+After implementing explicit connection recovery:
+
+1. PostgreSQL was stopped.
+2. `GET /counter` returned HTTP 503.
+3. `GET /health` continued returning HTTP 200.
+4. PostgreSQL restarted.
+5. `GET /counter` returned HTTP 200 with the preserved counter value.
+6. `POST /counter/increment` successfully committed another increment.
+
+The application recovered without restarting its process.
+
+### Correctness Considerations
+
+A broken PostgreSQL connection can be replaced before executing a new operation.
+
+However, if a connection is lost during COMMIT, the application may be unable to determine whether the transaction committed.
+
+Automatically retrying the increment in that situation could duplicate a successful operation.
+
+A more robust future design may use request-level idempotency keys and a database-backed deduplication mechanism.
+
+### Resource Considerations
+
+The observed application used one idle PostgreSQL backend connection between HTTP requests.
+
+PostgreSQL reported a maximum of 100 connections, with three reserved for superusers.
+
+This limit is not a target pool size.
+
+A future multithreaded server should use a bounded connection count appropriate to measured workload demand and available database resources.
+
+### Consequences
+
+The application can now recover from the tested PostgreSQL restart sequence.
+
+However, the current design retains:
+
+- Blocking database queries
+- One HTTP request-handling thread
+- One database connection
+- No reconnection backoff
+- No transactional idempotency guarantee
+- No application-level database readiness endpoint
+
+### Follow-up Experiments
+
+1. Measure query and COMMIT latency.
+2. Measure connection recovery latency.
+3. Test bounded reconnection backoff.
+4. Investigate idempotent transaction requests.
+5. Introduce a bounded connection pool if concurrent HTTP/database operations become necessary.
+6. Add readiness and database availability metrics on Day 8.
+
+### Supporting Evidence
+
+- `experiments/005-postgres-persistence/methodology.md`
+- `server/persistent_server.cpp`
+- `database/schema.sql`
+- `journal/day07.md`
