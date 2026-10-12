@@ -1,0 +1,16 @@
+Listening on 0.0.0.0:8080 with 4 workers
+Received:
+GET /health HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: curl/8.5.0
+Accept: */*
+
+
+Received:
+GET /health HTTP/1.1
+Host: 127.0.0.1:8080
+User-Agent: curl/8.5.0
+Accept: */*
+
+
+Rejected connections: 32

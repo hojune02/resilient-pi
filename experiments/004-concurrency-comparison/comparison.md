@@ -57,6 +57,36 @@ The observed regression may involve synchronization overhead, logging contention
 - Worker-pool queue-full rejection counts were not captured during the throughput sweep.
 - Process resource metrics still require comparison.
 - Direct Ethernet validation remains pending.
+## Overload Experiment: Bounded Queue Rejection
+
+### Configuration
+
+- Architecture: V2 bounded worker pool
+- Worker threads: 4
+- Application queue capacity: 64 accepted sockets
+- Client workload: 100 TCP connections opened without sending HTTP requests
+- Client hold duration: 2 seconds
+- Receive timeout: 1 second
+
+### Results
+
+- Successfully established client-side TCP connections: 100/100
+- Server-reported rejected connections: 32
+- Server remained running long enough to log subsequent `/health` requests and complete graceful shutdown.
+
+### Interpretation
+
+The experiment exercised V2's queue-full admission-control path, demonstrating that the acceptor closes new connections when its bounded application queue is full.
+
+The result does not mean 32 TCP handshakes failed. Client-side establishment and server-side application admission are distinct events.
+
+The test confirms functional rejection behavior, but maximum queue occupancy, file-descriptor bounds, and exact rejection timing were not independently measured.
+
+### Outstanding validation
+
+- Confirm HTTP 200 after overload.
+- Optionally record peak application queue depth and FD count.
+- Repeat the overload experiment to assess consistency.
 
 ## Next validation
 
