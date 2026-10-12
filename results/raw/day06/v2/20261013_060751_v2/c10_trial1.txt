@@ -1,0 +1,15 @@
+# start=2026-10-13T06:09:27+09:00
+Running 15s test @ http://110.76.76.127:8080/health
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    39.13ms   33.90ms 199.49ms   84.70%
+    Req/Sec    65.18     42.36   151.00     61.40%
+  Latency Distribution
+     50%   23.85ms
+     75%   50.47ms
+     90%   87.52ms
+     99%  162.53ms
+  1906 requests in 15.06s, 160.07KB read
+Requests/sec:    126.56
+Transfer/sec:     10.63KB
+# end=2026-10-13T06:09:42+09:00
