@@ -1,0 +1,21 @@
+2026-10-13T10:53:50+09:00
+=== Monitoring services ===
+=== prometheus ===
+MemoryCurrent=68952064
+CPUUsageNSec=22335243000
+TasksCurrent=11
+=== prometheus-node-exporter ===
+MemoryCurrent=10108928
+CPUUsageNSec=132872250000
+TasksCurrent=6
+=== grafana-server ===
+MemoryCurrent=480407552
+CPUUsageNSec=52595722000
+TasksCurrent=132
+=== Application processes ===
+  15065  0.0  7952    01:16:16 /tmp/resilient-pi-observable
+  17821  0.0  7848       40:20 /tmp/resilient-pi-persistent
+=== System memory ===
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       1.4Gi       2.8Gi        17Mi       3.7Gi       6.2Gi
+Swap:             0B          0B          0B

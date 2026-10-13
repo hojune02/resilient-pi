@@ -1,0 +1,19 @@
+Warming up both servers...
+Round 1: persistent mean=2.180 ms p95=2.333 ms
+Round 1: observable mean=2.011 ms p95=2.143 ms
+Round 2: observable mean=2.026 ms p95=2.282 ms
+Round 2: persistent mean=2.349 ms p95=3.060 ms
+Round 3: persistent mean=2.545 ms p95=3.219 ms
+Round 3: observable mean=2.045 ms p95=2.285 ms
+Round 4: observable mean=2.024 ms p95=2.175 ms
+Round 4: persistent mean=1.997 ms p95=2.125 ms
+Round 5: persistent mean=1.976 ms p95=2.042 ms
+Round 5: observable mean=2.031 ms p95=2.165 ms
+Round 6: observable mean=1.995 ms p95=2.144 ms
+Round 6: persistent mean=2.003 ms p95=2.108 ms
+
+Round-level summary:
+persistent: mean of round means=2.175 ms, round-mean stdev=0.232 ms
+observable: mean of round means=2.022 ms, round-mean stdev=0.017 ms
+
+Saved: results/raw/day08/overhead-latency.csv

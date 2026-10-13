@@ -1,0 +1,39 @@
+# Monitoring Failure Isolation Test
+
+**Date:** 2026-10-13  
+**System:** Resilient Pi
+
+## Hypothesis
+
+Stopping Prometheus will interrupt historical metric collection but will not prevent the C++ HTTP server from serving requests.
+
+## Procedure
+
+1. Stop Prometheus using `sudo systemctl stop prometheus`.
+2. Request `GET /health` from the observable server.
+3. Request `GET /counter` from the observable server.
+4. Restart Prometheus.
+5. Query `up{job="resilient-pi"}` through the Prometheus API.
+
+## Observations
+
+| Operation | Result |
+|---|---|
+| `GET /health` while Prometheus stopped | HTTP 200, `OK` |
+| `GET /counter` while Prometheus stopped | HTTP 200, `16` |
+| Prometheus restart | Successful |
+| `up{job="resilient-pi"}` after restart | `1` |
+
+## Conclusion
+
+The application continued serving requests when Prometheus was unavailable.
+
+The monitoring backend and application have independent process lifecycles. Monitoring failure did not cause application failure in this experiment.
+
+## Limitations
+
+- The test did not stop Grafana or Node Exporter.
+- The experiment did not measure the duration of monitoring unavailability.
+- It did not evaluate behavior under sustained high load.
+- `up = 1` confirms successful scraping, not database readiness.
+- Application counters persist in process memory until the application restarts, but historical samples may be missing during monitoring outages.
