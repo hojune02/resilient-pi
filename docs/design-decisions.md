@@ -275,3 +275,299 @@ However, the current design retains:
 - `server/persistent_server.cpp`
 - `database/schema.sql`
 - `journal/day07.md`
+
+
+---
+
+## DDR-004: Lightweight In-Process Metrics with External Monitoring
+
+**Status:** Accepted for Day 8 prototype  
+**Date:** 2026-10-13  
+**Related experiment:** `006-observability`
+
+### Context
+
+The Resilient Pi project initially relied on terminal inspection, HTTP tests and systemd logs to understand application behavior.
+
+Day 7 introduced PostgreSQL persistence and demonstrated that the database could become unavailable while the HTTP application remained alive.
+
+This created a need for telemetry that distinguishes:
+
+- Service availability
+- Request errors
+- Request latency
+- Database readiness
+- Resource utilization
+- Monitoring-system failures
+
+The monitoring approach should remain understandable, reproducible and reasonably lightweight.
+
+### Problem
+
+A running process is not necessarily a functioning service.
+
+For example, the C++ HTTP server can return HTTP 200 for `/health` while database-dependent endpoints fail.
+
+CPU and memory measurements alone cannot identify these failures.
+
+At the same time, adding observability introduces CPU, memory, storage and operational complexity.
+
+The design must balance diagnostic usefulness against instrumentation and monitoring cost.
+
+### Alternatives Considered
+
+#### A. Logs only
+
+Advantages:
+
+- Simple to implement
+- Useful for recording specific failure events
+- Can preserve detailed diagnostic context
+
+Disadvantages:
+
+- Harder to calculate error rates and latency percentiles
+- Requires parsing and aggregation
+- Can generate significant I/O
+- Risks accidental exposure of sensitive request data
+
+Rejected as the sole observability mechanism.
+
+#### B. Custom in-process metrics without external collection
+
+Advantages:
+
+- Minimal dependencies
+- Low implementation complexity
+- Can display current process state
+
+Disadvantages:
+
+- Historical data disappears when the process exits
+- Harder to investigate previous outages
+- No ready-made time-series query engine
+- Requires custom visualization
+
+Useful as a first instrumentation step but insufficient for historical monitoring.
+
+#### C. Lightweight metrics with Prometheus and Grafana
+
+Advantages:
+
+- Standard metric exposition format
+- Historical time-series collection
+- Rate and percentile queries
+- Reusable dashboard definitions
+- Monitoring process lifecycle independent of application
+- Compatible with external deployment later
+
+Disadvantages:
+
+- Additional processes and resource consumption
+- Scrape-based sampling delay
+- Possible telemetry gaps
+- Requires configuration and security management
+- Metrics cardinality must be controlled
+
+Selected for Day 8.
+
+#### D. OpenTelemetry traces and distributed tracing backend
+
+Advantages:
+
+- Can reveal execution paths across multiple services
+- Supports correlation of distributed operations
+- Useful for analyzing individual request journeys
+
+Disadvantages:
+
+- More instrumentation complexity
+- Additional collection and storage components
+- Limited immediate value for the current single-host architecture
+- Does not replace basic error-rate and resource metrics
+
+Deferred until a concrete tracing requirement emerges.
+
+### Decision
+
+Use lightweight in-process metrics implemented directly in C++.
+
+Expose them through a localhost `/metrics` endpoint using Prometheus text exposition format.
+
+Collect application metrics with Prometheus at five-second intervals.
+
+Use Node Exporter for host CPU and memory measurements.
+
+Visualize historical data using Grafana.
+
+Keep Prometheus, Node Exporter and Grafana as independently managed systemd services.
+
+Restrict monitoring network listeners to localhost and use SSH tunneling for remote dashboard access.
+
+Avoid high-cardinality and sensitive labels.
+
+### Metric Design
+
+The application exports:
+
+- HTTP response-attempt count
+- HTTP error-response count
+- HTTP send-failure count
+- HTTP request duration histogram
+- Active accepted connections
+- Process uptime
+- Last-observed database connection state
+- Database-operation duration histogram
+
+Node Exporter provides host CPU, memory and load metrics.
+
+Prometheus provides scrape-health metrics.
+
+The dashboard contains eight panels covering application throughput, errors, latency, database state, active connections, CPU and memory.
+
+### Evidence
+
+#### Application instrumentation
+
+A synthetic histogram smoke test correctly recorded three observations.
+
+Real HTTP traffic changed request counters, error counters and latency histograms as expected.
+
+#### Database outage
+
+Stopping PostgreSQL produced:
+
+```text
+GET /health  -> HTTP 200
+GET /ready   -> HTTP 503
+GET /counter -> HTTP 503
+```
+
+The database connection gauge changed to zero.
+
+After restarting PostgreSQL, database-backed requests returned HTTP 200 and the gauge returned to one.
+
+The HTTP error counter retained the two recorded failures.
+
+#### Monitoring failure isolation
+
+Prometheus was stopped while the application continued running.
+
+Observed:
+
+```text
+GET /health  -> HTTP 200
+GET /counter -> HTTP 200, 16
+```
+
+After restarting Prometheus:
+
+```promql
+up{job="resilient-pi"}
+```
+
+returned one.
+
+This demonstrated that Prometheus is not required for normal application request handling.
+
+### Performance and Resource Evidence
+
+#### Application memory
+
+| Implementation | Observed RSS |
+|---|---:|
+| Persistent server | 7848 KiB |
+| Observable server | 7952 KiB |
+
+The observable server's RSS was 104 KiB higher in a single snapshot.
+
+This is not an isolated measurement of instrumentation memory overhead.
+
+#### Monitoring memory
+
+Observed systemd cgroup memory:
+
+| Component | Approximate memory |
+|---|---:|
+| Prometheus | 65.76 MiB |
+| Node Exporter | 9.64 MiB |
+| Grafana | 458.15 MiB |
+| Combined | 533.55 MiB |
+
+The monitoring stack has a substantially larger memory footprint than the application's observed instrumentation difference.
+
+#### Latency benchmark
+
+Six alternating rounds of 100 sequential read-only requests per server produced:
+
+```text
+Persistent server mean: 2.175 ms
+Observable server mean: 2.022 ms
+```
+
+The result does not establish a performance improvement caused by instrumentation.
+
+No clear instrumentation-related latency regression was resolved under the tested workload.
+
+### Consequences
+
+Benefits:
+
+1. Application failures are observable through historical metrics.
+2. Database readiness is distinguishable from HTTP process liveness.
+3. Request latency distributions can be analyzed.
+4. Host resource measurements are available.
+5. Dashboards can be recreated from version-controlled JSON.
+6. Monitoring services can fail independently of application request handling.
+
+Costs:
+
+1. Additional memory and CPU consumption
+2. Additional operational services
+3. Time-series storage on the Pi
+4. Scrape traffic handled by the application
+5. Monitoring configuration and network-security requirements
+
+### Known Limitations
+
+- The observable server is single-threaded.
+- `/metrics` uses the application's request-handling loop.
+- Scrapes contribute to request counters and active-connections measurements.
+- HTTP request counts and latency observations can have different populations.
+- Database availability is based on the last check rather than continuous probing.
+- Percentiles derived from histograms are approximate.
+- Sparse traffic can make short-window quantile estimates unstable.
+- Process-specific CPU usage is not exported.
+- Monitoring-stack overhead has not been measured under a sustained controlled workload.
+- The dashboard screenshot does not capture the earlier PostgreSQL outage interval.
+
+### Future Reconsideration Criteria
+
+Revisit this decision if:
+
+1. The deployment moves to a smaller memory-constrained device.
+2. Grafana and Prometheus resource consumption affects application behavior.
+3. The server becomes multithreaded and metrics require synchronization.
+4. Multiple services require request-level tracing.
+5. Operational requirements demand alerting, longer retention or remote monitoring.
+6. Metric cardinality grows beyond predictable bounded dimensions.
+
+For a constrained edge deployment, retain local instrumentation while considering a separate monitoring host.
+
+### Supporting Files
+
+```text
+server/observable_server.cpp
+server/metrics.hpp
+
+experiments/006-observability/methodology.md
+experiments/006-observability/metrics.md
+experiments/006-observability/compare_overhead.py
+
+observability/grafana/resilient-pi-dashboard.json
+
+results/raw/day08/
+results/figures/day08-observability-dashboard.png
+
+journal/day08.md
+```
