@@ -1,0 +1,6 @@
+Linux resilient-pi 6.8.0-1065-raspi #69-Ubuntu SMP PREEMPT_DYNAMIC Tue Sep  8 18:10:10 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+4
+ondemand
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       2.0Gi       2.5Gi        16Mi       3.5Gi       5.6Gi
+Swap:             0B          0B          0B
