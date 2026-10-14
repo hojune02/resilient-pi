@@ -919,3 +919,320 @@ The observed absence of throttling flags does not establish that throttling can 
 ### Follow-up
 
 Evaluate bounded admission and CPU resource isolation under sustained load, preserving a reproducible baseline before each change.
+
+---
+
+## DDR-007: Bound Application Memory and Isolate Resource Exhaustion with Cgroups
+
+**Status:** Accepted as architectural direction; production limits pending validation  
+**Date:** 2026-10-15  
+**Related experiment:** `008-memory-pressure`
+
+### 1. Context
+
+Resilient Pi runs a C++ HTTP server alongside PostgreSQL, Prometheus, Grafana, and other Linux services.
+
+The project already implements some application-level resource bounds, including a four-worker concurrency limit and a 64-entry connection queue in V2.
+
+However, the HTTP server initially ran without an explicit systemd memory limit.
+
+A process consuming unbounded memory could potentially interfere with unrelated workloads or trigger system-level memory exhaustion.
+
+Day 10 investigated how Linux cgroup v2 memory controls behave under normal allocation, reclaim pressure, and OOM.
+
+### 2. Problem Statement
+
+Application-level bounds do not necessarily account for every source of memory consumption.
+
+Potential sources include:
+
+- Socket buffers
+- File descriptors and connection state
+- Request and response buffers
+- Worker thread stacks
+- Dynamically allocated objects
+- Logging and temporary data
+- Library and runtime allocations
+
+A resilient deployment must prevent unexpectedly large resource consumption from causing uncontrolled failure propagation.
+
+At the same time, setting memory limits too aggressively may cause reclaim stalls, request latency, or premature process termination.
+
+### 3. Alternatives Considered
+
+#### A. Rely on Available Host Memory
+
+Advantages:
+
+- Simple deployment
+- No explicit service memory configuration
+- Applications can use available memory opportunistically
+
+Disadvantages:
+
+- Weaker failure isolation
+- Uncontrolled memory growth may affect unrelated processes
+- Potential system-wide OOM risk
+- Memory availability becomes dependent on other workloads
+
+Rejected as the sole protection mechanism.
+
+#### B. Application-Level Bounds Only
+
+Advantages:
+
+- Application can reject excess work before allocating excessive memory
+- Enables explicit overload policies
+- Can preserve service responsiveness under known workloads
+
+Disadvantages:
+
+- Difficult to account for every allocation
+- Kernel socket buffers and library allocations remain relevant
+- Programming errors and unexpected dependencies may bypass intended bounds
+
+Selected as the first line of defense, but insufficient by itself.
+
+#### C. Systemd Memory Limits Only
+
+Advantages:
+
+- Enforced independently of application code
+- Can isolate memory exhaustion to a particular service
+- Provides standard kernel accounting and failure evidence
+
+Disadvantages:
+
+- `MemoryHigh` can cause prolonged stalls
+- `MemoryMax` may terminate a process abruptly
+- Hard limits cannot replace request-level admission control
+- Limits require workload-specific tuning
+
+Selected as an independent containment layer, not the primary overload policy.
+
+#### D. Application Bounds with Cgroup Isolation
+
+Advantages:
+
+- Controls resource growth before exhaustion
+- Provides an OS-enforced memory boundary
+- Separates failure domains between services
+- Supports pressure and OOM monitoring
+- Allows service-specific resource budgets
+
+Disadvantages:
+
+- Additional configuration and operational complexity
+- Limits may require adjustment as workloads change
+- Pressure can still introduce latency
+- Monitoring and testing are needed to avoid overly restrictive settings
+
+Selected as the preferred architectural direction.
+
+### 4. Decision
+
+Adopt a layered memory-protection strategy.
+
+1. Bound application-level resource growth.
+2. Use finite worker counts and queue capacities.
+3. Define maximum request sizes and allocation limits.
+4. Apply service-level cgroup memory controls after workload-based sizing.
+5. Monitor memory availability, RSS, cgroup pressure, and OOM events.
+6. Treat `MemoryMax` as a last-resort containment mechanism.
+7. Avoid relying on OOM termination for normal overload management.
+
+Do not apply the experimental 64 MiB limit directly to the production HTTP service without sustained workload validation.
+
+### 5. Experimental Evidence
+
+#### Normal Allocation
+
+A 192 MiB allocation was performed inside a cgroup configured with:
+
+```text
+MemoryHigh=256M
+MemoryMax=384M
+MemorySwapMax=0
+```
+
+The allocation completed normally.
+
+The cgroup reported memory usage consistent with the allocated working set.
+
+No OOM events were observed.
+
+#### MemoryHigh Enforcement
+
+A 300 MiB allocation was attempted with:
+
+```text
+MemoryHigh=256M
+MemoryMax=384M
+```
+
+Observed:
+
+```text
+memory.events high=1562
+memory.events max=0
+memory.events oom_kill=0
+memory.pressure some avg10=40.19
+memory.pressure full avg10=40.19
+```
+
+The process remained running and required manual termination.
+
+This demonstrated that memory pressure may severely reduce progress before OOM occurs.
+
+#### MemoryMax Enforcement
+
+A 512 MiB allocation was attempted under:
+
+```text
+MemoryMax=384M
+MemorySwapMax=0
+```
+
+Systemd reported:
+
+```text
+Result=oom-kill
+ExecMainStatus=9
+```
+
+The kernel reported:
+
+```text
+CONSTRAINT_MEMCG
+```
+
+The victim was Python PID 35018 inside the experimental cgroup.
+
+#### Failure Isolation
+
+After the OOM:
+
+```text
+resilient-pi: active
+postgresql@16-main: active
+```
+
+The HTTP service returned HTTP 200.
+
+The host retained substantial available memory.
+
+#### Memory-Limited HTTP Service
+
+A separate C++ server on port 8083 was configured with:
+
+```text
+MemoryHigh=48M
+MemoryMax=64M
+MemorySwapMax=0
+```
+
+It started successfully and served an HTTP 200 response.
+
+This demonstrated basic operation under a finite memory limit.
+
+It did not validate that limit under sustained high-concurrency traffic.
+
+### 6. Consequences
+
+#### Positive
+
+- Memory-exhausting workloads can be contained within explicit resource boundaries.
+- Unrelated application and database processes can remain operational when an isolated workload fails.
+- Memory consumption becomes observable through standard cgroup interfaces.
+- Hard limits provide a last-resort protection against uncontrolled growth.
+- Application-level bounds can reduce the likelihood of reaching OOM.
+
+#### Negative
+
+- Aggressive memory limits can introduce reclaim stalls.
+- Hard-limit OOM may cause abrupt process termination.
+- Resource budgets require testing and maintenance.
+- Shared kernel, CPU, and storage resources can still introduce interference.
+- Systemd limits do not solve application memory leaks or request-handling design flaws.
+
+### 7. Application Design Implications
+
+The V2 worker-pool server currently defines:
+
+```cpp
+constexpr std::size_t WORKERS = 4;
+constexpr std::size_t QUEUE_CAPACITY = 64;
+```
+
+These values bound worker count and queued connection descriptors.
+
+Future improvements should also include:
+
+- Maximum HTTP request-header size
+- Maximum request-body size
+- Bounded per-connection buffers
+- Explicit response to overload
+- Connection and request timeouts
+- Error handling for allocation failures where practical
+- Memory measurements under sustained load
+
+The kernel's OOM killer should not be the first mechanism that informs clients the server is overloaded.
+
+### 8. Observability Requirements
+
+Monitor:
+
+- Host available memory
+- Process resident memory
+- Cgroup memory.current
+- Cgroup memory.peak
+- Cgroup memory.events
+- Cgroup memory.pressure
+- Kernel OOM events
+- HTTP latency and error rate
+
+Memory usage should be interpreted alongside reclaim pressure and service-level symptoms.
+
+A low amount of completely free memory is not sufficient evidence of a memory problem.
+
+### 9. Limitations
+
+The experiment did not determine an optimal production memory limit.
+
+It did not measure HTTP latency during concurrent memory pressure.
+
+The memory-high allocation was manually stopped rather than completing normally.
+
+The controlled OOM used a single-purpose test cgroup, so the experiment did not explore victim selection among multiple processes.
+
+No memory leak was identified.
+
+Swap was disabled and was not experimentally evaluated.
+
+### 10. Follow-Up Work
+
+1. Benchmark the C++ server under memory pressure.
+2. Measure application memory under increasing connections.
+3. Capture time-series memory and PSI data.
+4. Introduce explicit request-size limits.
+5. Validate service memory budgets under sustained workloads.
+6. Test admission control before hard-limit exhaustion.
+7. Measure recovery behavior after a memory-limited service terminates.
+8. Determine whether different memory budgets are needed for V1 and V2.
+
+### 11. Supporting Artifacts
+
+```text
+experiments/008-memory-pressure/allocate.py
+experiments/008-memory-pressure/limited_server.cpp
+experiments/008-memory-pressure/methodology.md
+experiments/008-memory-pressure/findings.md
+
+results/raw/day10/baseline-memory.txt
+results/raw/day10/oom-isolation.txt
+results/raw/day10/memory-high-journal.txt
+results/raw/day10/oom-service-journal.txt
+results/raw/day10/oom-kernel.txt
+
+journal/day10.md
+```

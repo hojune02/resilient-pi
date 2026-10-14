@@ -1,0 +1,10 @@
+2026-10-15T07:24:47+09:00
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       2.0Gi       1.9Gi        16Mi       3.9Gi       5.6Gi
+Swap:             0B          0B          0B
+some avg10=0.00 avg60=0.00 avg300=0.00 total=66501
+full avg10=0.00 avg60=0.00 avg300=0.00 total=30572
+MemoryCurrent=278528
+MemoryHigh=infinity
+MemoryMax=infinity
+MemorySwapMax=infinity

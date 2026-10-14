@@ -1,0 +1,5 @@
+Oct 15 07:34:41 resilient-pi systemd[1]: Started resilient-pi-memory-oom.service - /usr/bin/python3 /home/hojune/projects/resilient-pi/experiments/008-memory-pressure/allocate.py 512.
+Oct 15 07:34:41 resilient-pi python3[35018]: PID: 35018
+Oct 15 07:34:42 resilient-pi systemd[1]: resilient-pi-memory-oom.service: A process of this unit has been killed by the OOM killer.
+Oct 15 07:34:42 resilient-pi systemd[1]: resilient-pi-memory-oom.service: Main process exited, code=killed, status=9/KILL
+Oct 15 07:34:42 resilient-pi systemd[1]: resilient-pi-memory-oom.service: Failed with result 'oom-kill'.

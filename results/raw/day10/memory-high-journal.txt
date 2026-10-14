@@ -1,0 +1,6 @@
+Oct 15 07:31:15 resilient-pi systemd[1]: Started resilient-pi-memory-high.service - /usr/bin/python3 /home/hojune/projects/resilient-pi/experiments/008-memory-pressure/allocate.py 300.
+Oct 15 07:31:15 resilient-pi python3[34963]: PID: 34963
+Oct 15 07:38:39 resilient-pi systemd[1]: Stopping resilient-pi-memory-high.service - /usr/bin/python3 /home/hojune/projects/resilient-pi/experiments/008-memory-pressure/allocate.py 300...
+Oct 15 07:38:39 resilient-pi systemd[1]: resilient-pi-memory-high.service: Deactivated successfully.
+Oct 15 07:38:39 resilient-pi systemd[1]: Stopped resilient-pi-memory-high.service - /usr/bin/python3 /home/hojune/projects/resilient-pi/experiments/008-memory-pressure/allocate.py 300.
+Oct 15 07:38:39 resilient-pi systemd[1]: resilient-pi-memory-high.service: Consumed 1.587s CPU time, 282.2M memory peak, 0B memory swap peak.

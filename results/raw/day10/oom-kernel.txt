@@ -1,0 +1,2 @@
+Oct 15 07:34:42 resilient-pi kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=/,mems_allowed=0,oom_memcg=/system.slice/resilient-pi-memory-oom.service,task_memcg=/system.slice/resilient-pi-memory-oom.service,task=python3,pid=35018,uid=0
+Oct 15 07:34:42 resilient-pi kernel: Memory cgroup out of memory: Killed process 35018 (python3) total-vm:539012kB, anon-rss:392320kB, file-rss:5888kB, shmem-rss:0kB, UID:0 pgtables:828kB oom_score_adj:0
