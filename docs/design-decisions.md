@@ -571,3 +571,351 @@ results/figures/day08-observability-dashboard.png
 
 journal/day08.md
 ```
+---
+
+## DDR-005: Investigate Worker-Pool Throughput and High-Concurrency Socket Failures
+
+**Status:** Investigation accepted; optimization pending  
+**Date:** 2026-10-13  
+**Related experiments:** Day 6 concurrency benchmark, direct-Ethernet benchmark  
+**Affected implementation:** `server/worker_pool.cpp`
+
+### 1. Context
+
+Resilient Pi implements two HTTP server architectures:
+
+- **V1:** Single-threaded, blocking `accept()` → `recv()` → `send()` → `close()`.
+- **V2:** One acceptor thread, four worker threads, a mutex-protected bounded queue of 64 pending connections, and a condition variable.
+
+V2 was introduced to improve concurrency and prevent a single slow client from blocking every other request.
+
+The original benchmark suggested that V2 had lower throughput than V1. A new direct-Ethernet experiment was performed to reduce network-path variability.
+
+The client was Arch Linux, connected directly to the Raspberry Pi at `10.42.0.2` over a 100 Mb/s full-duplex Ethernet link.
+
+Both implementations were tested using `wrk`, with five-second warmups and three 15-second measured runs per concurrency level.
+
+Routine server output was redirected to `/dev/null` for both implementations.
+
+### 2. Benchmark Results
+
+| Concurrent connections | V1 mean req/s | V2 mean req/s | V2 relative difference |
+|---|---:|---:|---:|
+| 1 | 2,053 | 1,281 | -37.6% |
+| 10 | 2,369 | 1,905 | -19.6% |
+| 25 | 2,340 | 2,090 | -10.7% |
+| 50 | 2,923 | 2,627 | -10.1% |
+| 100 | 3,831 | 3,833 | Approximately equal |
+
+V1 delivered higher mean throughput at concurrency levels 1–50.
+
+At concurrency 100, reported throughput was approximately equal, but V2 produced socket read errors.
+
+Raw V2 concurrency-100 results:
+
+| Run | Requests | Socket read errors |
+|---|---:|---:|
+| 1 | 56,086 | 1,682 |
+| 2 | 56,142 | 1,047 |
+| 3 | 61,077 | 1,499 |
+| Total | 173,305 | 4,228 |
+
+V1 reported no socket errors in its measured runs.
+
+The initial benchmark CSV parser incorrectly recorded zero errors for V2. The raw `wrk` logs preserve the actual error counts.
+
+V2 also showed substantially more run-to-run throughput variability at several concurrency levels.
+
+### 3. Problem Statement
+
+Adding worker threads did not reliably improve throughput.
+
+The worker-pool implementation introduces synchronization, scheduling, and queue-management costs absent from V1.
+
+The observed high-concurrency socket failures also raise questions about V2's overload behavior.
+
+The engineering problem is therefore:
+
+**Under which workloads does the worker pool improve request handling, and what implementation or operating-system behavior causes its throughput and reliability limitations?**
+
+### 4. Working Hypotheses
+
+#### H1 — Synchronization overhead
+
+Mutex acquisition, queue operations, condition-variable signaling, and worker scheduling may increase request-processing cost.
+
+This overhead may dominate for very short requests.
+
+**Validation:** Measure queue-lock wait time, enqueue/dequeue duration, and context-switch counts.
+
+#### H2 — Queue saturation and rejected connections
+
+The 64-entry application queue may fill when incoming connections arrive faster than workers can process them.
+
+Rejected connections may contribute to the observed socket read errors.
+
+**Validation:** Instrument queue depth, accepted connections, rejected connections, and busy workers. Correlate these values with client-side failures.
+
+#### H3 — Blocking socket operations
+
+Each worker performs blocking socket operations. Workers can become unavailable while waiting for clients.
+
+**Validation:** Measure time spent waiting in `recv()` versus performing useful request processing.
+
+#### H4 — Logging and synchronization contention
+
+Both servers log request data. V2 also synchronizes logging between worker threads.
+
+Redirecting stdout does not eliminate formatting, locking, or all logging-related execution costs.
+
+**Validation:** Compare equivalent implementations with per-request logging disabled at compile time.
+
+#### H5 — Client or kernel bottleneck
+
+The benchmark includes repeated TCP connection establishment and teardown because the servers close connections after each response.
+
+Client scheduling, TCP socket management, network interrupts, and connection churn may influence measurements.
+
+**Validation:** Inspect client/server CPU, context switches, TCP statistics, and interface counters during controlled trials.
+
+### 5. Decision
+
+Do not assume that four workers are inherently faster than a single-threaded server.
+
+Do not increase the worker count, queue capacity, or timeout values without measurements.
+
+Preserve the existing V1 and V2 implementations as baseline references.
+
+Investigate V2 through incremental instrumentation and controlled experiments.
+
+Prioritize identifying the cause of high-concurrency socket read errors before optimizing peak throughput.
+
+### 6. Investigation Plan
+
+**Phase 1 — Establish correctness**
+
+- Fix the benchmark's socket-error parser.
+- Preserve all raw benchmark results.
+- Instrument connection admission and rejection.
+- Measure peak queue depth and busy workers.
+- Reproduce the V2 concurrency-100 read errors.
+- Determine whether errors correlate with queue rejection, socket failures, or another source.
+
+**Phase 2 — Measure scheduling and synchronization**
+
+- Measure enqueue and dequeue operations.
+- Measure time spent waiting for a worker.
+- Record process CPU utilization and voluntary/involuntary context switches.
+- Determine whether workers are CPU-bound, blocked, or waiting on synchronization.
+
+**Phase 3 — Isolate logging overhead**
+
+- Build equivalent V1/V2 variants with routine per-request logging disabled.
+- Keep compiler flags, request behavior, and test conditions consistent.
+- Compare results against the original binaries.
+
+**Phase 4 — Test slow-client isolation**
+
+- Hold one or more TCP connections open without sending requests.
+- Send ordinary HTTP requests from another client.
+- Compare successful response rates and tail latency.
+- Identify conditions in which V2 maintains responsiveness while V1 stalls.
+
+**Phase 5 — Optimize and retest**
+
+Only after identifying a bottleneck, consider changes such as:
+
+- Reducing lock scope
+- Changing queue admission behavior
+- Improving socket error handling
+- Separating logging from request processing
+- Adjusting worker count based on measured workloads
+- Introducing nonblocking I/O if requirements justify it
+
+Each optimization must be evaluated against the unchanged baseline.
+
+### 7. Success Criteria
+
+V2 should not be considered an improvement solely because it uses multiple threads.
+
+A successful revised design should demonstrate:
+
+1. Correct HTTP response handling.
+2. Predictable behavior under overload.
+3. No unexplained socket failures under tested operating conditions.
+4. Measurable benefits under workloads that require concurrency.
+5. Acceptable request latency and resource consumption.
+6. Reproducible results across multiple trials.
+
+If V2 offers better slow-client isolation but lower throughput for tiny requests, document that as an intentional engineering trade-off rather than an optimization failure.
+
+### 8. Known Experimental Limitations
+
+- The link operated at 100 Mb/s rather than Gigabit speed.
+- V1 and V2 were benchmarked in separate blocks, creating possible time-order bias.
+- Only three repetitions were collected per configuration.
+- CPU, lock contention, and queue depth were not measured during the original direct-Ethernet trials.
+- `wrk` throughput does not capture all connection-level failure events.
+- The workload used very small responses and repeated TCP connection establishment.
+- Redirecting logs to `/dev/null` did not remove in-process logging overhead.
+- The benchmark has not yet established a root cause for V2's lower throughput.
+
+### 9. Consequences
+
+The project will evaluate concurrency as a workload-dependent architectural trade-off.
+
+Future performance claims will distinguish:
+
+- Peak throughput
+- Tail latency
+- Error and rejection behavior
+- Resource efficiency
+- Availability under slow or blocking clients
+
+A worker-pool implementation will be considered useful when evidence shows that its concurrency benefits justify its additional complexity.
+
+### 10. Supporting Artifacts
+
+- `server/main.cpp`
+- `server/worker_pool.cpp`
+- `build/day06/v1`
+- `build/day06/v2`
+- Direct-Ethernet `wrk` raw outputs
+- Direct-Ethernet benchmark CSV files
+- Day 6 concurrency experiment documentation
+
+**Follow-up status:** Root-cause investigation remains open.
+### Follow-up Evidence — Isolated V2 Concurrency-100 Diagnostics
+
+**Date:** 2026-10-13
+
+Two additional direct-Ethernet V2 tests were performed at 100 concurrent connections using two `wrk` threads and a 15-second duration.
+
+| Metric | Diagnostic 1 | Diagnostic 2 |
+|---|---:|---:|
+| Requests/sec | 5,437.89 | 5,405.64 |
+| Completed requests | 81,597 | 81,125 |
+| Median latency | 3.62 ms | 2.51 ms |
+| p99 latency | 438.74 ms | 453.03 ms |
+| Socket read errors | 0 | 0 |
+| Timeouts | 1 | 1 |
+| Server-side rejections | Not collected | 0 |
+
+The second experiment preserved the server's shutdown diagnostic output while redirecting routine per-request logging to `/dev/null`.
+
+The server terminated gracefully and reported:
+
+```text
+Rejected connections: 0
+```
+
+**Finding:** The application queue did not reject connections during the second diagnostic run. Queue rejection therefore cannot explain the observed socket errors in that particular run.
+
+However, the earlier concurrency-100 tests reported 4,228 socket read errors across three runs. Their server-side rejection counts were not collected, so queue overflow remains an unverified explanation for those earlier failures.
+
+The diagnostic experiments also produced substantially higher throughput than the earlier benchmark runs. Potential confounding factors include test order, process lifetime, background workload and TCP connection state.
+
+**Decision:** Do not modify worker count or queue capacity yet. Prioritize controlled experiments that correlate client errors, server rejections, process CPU, and context-switch activity.
+
+The current evidence establishes workload-dependent and experiment-dependent behavior, not a confirmed worker-pool bottleneck.
+
+### Follow-up Evidence — Queue Rejection Correlates with Client Read Errors
+
+**Date:** 2026-10-13
+
+During three consecutive 100-connection `wrk` trials, V2 reported 12,181 socket read errors.
+
+After graceful shutdown of the same benchmark server process, V2 reported:
+
+```text
+Rejected connections: 12216
+```
+
+The difference was 35 events.
+
+This is strong evidence that connections rejected by V2's bounded 64-slot application queue account for most of the observed client-side read errors.
+
+The counts are not expected to match exactly because the server's rejection counter includes the full process lifetime, including warmup periods, while client error counts cover the three measured benchmark intervals.
+
+A separate isolated V2 diagnostic run reported zero rejected connections and zero read errors, further supporting the relationship between queue rejection and client-visible failures.
+
+**Conclusion:** Queue-full admission rejection is a strongly supported contributor to V2's high-concurrency read errors.
+
+**Remaining questions:**
+
+- Why does the queue reach capacity under some runs but not others?
+- How often are all four workers simultaneously occupied?
+- What is the distribution of queue waiting time?
+- Does per-request logging cause additional worker contention?
+- Would changing admission behavior reduce errors without significantly increasing tail latency?
+
+**Decision:** Preserve the original V2 baseline. Instrument worker utilization and queue behavior before modifying the worker count, capacity or overload policy.
+
+A separate cooldown experiment on V1 showed throughput falling from 3,095 to 1,775 requests/sec across immediate consecutive runs and recovering to 2,763 requests/sec after 120 seconds. This supports a transient performance condition but does not identify its cause.
+
+The queue-rejection problem and repeated-test performance degradation will be investigated independently.
+---
+
+## DDR-006: Treat CPU Saturation as an Admission-Control and Scheduling Problem
+
+**Status:** Accepted for experimental interpretation  
+**Date:** 2026-10-14  
+**Related experiment:** `007-cpu-saturation`
+
+### Context
+
+The Resilient Pi HTTP server runs on a four-core Raspberry Pi.
+
+Previous benchmarks showed that throughput and tail latency can vary substantially under sustained TCP connection churn.
+
+Experiment 007 investigated whether CPU resource pressure contributes to degraded HTTP performance.
+
+### Evidence
+
+CPU pressure was generated using 0–4 `stress-ng` workers.
+
+A synchronized four-worker stress experiment showed:
+
+- Host CPU utilization: 99.9%
+- HTTP throughput: 2092.75 requests/sec
+- Initial baseline throughput: 2753.95 requests/sec
+- Baseline p50 latency: 5.48 ms
+- Saturated p50 latency: 11.02 ms
+- Runnable-task counts frequently exceeding the four available CPU cores
+
+The firmware throttling query returned `0x0`, and observed CPU frequency remained stable during the stressed samples.
+
+### Decision
+
+Treat CPU saturation as a potential source of scheduler contention and request latency rather than assuming degraded throughput necessarily indicates thermal throttling.
+
+Do not optimize worker counts or modify CPU frequency based solely on aggregate CPU utilization.
+
+Measure:
+
+1. Application throughput and error rate
+2. p50/p95/p99 latency
+3. Per-core CPU utilization
+4. Runnable-task pressure
+5. Process CPU usage
+6. Temperature and frequency
+
+Future overload control should consider bounded admission, request timeouts, and load shedding before accepting unbounded demand.
+
+### Trade-offs
+
+Admission control can protect latency and memory resources but may reject requests.
+
+Worker pools can isolate blocking operations but introduce coordination and scheduling costs.
+
+CPU limits can improve resource isolation but may reduce available application throughput.
+
+### Limitations
+
+The experiment did not independently establish exact scheduling delays or quantify the effect of the cooling fan.
+
+The observed absence of throttling flags does not establish that throttling can never occur under longer or hotter workloads.
+
+### Follow-up
+
+Evaluate bounded admission and CPU resource isolation under sustained load, preserving a reproducible baseline before each change.
