@@ -1,0 +1,671 @@
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:39 resilient-pi server[4630]: Connection: close
+Oct 16 19:16:39 resilient-pi server[4630]: 
+Oct 16 19:16:39 resilient-pi server[4630]: Received:
+Oct 16 19:16:39 resilient-pi server[4630]: GET / HTTP/1.1
+Oct 16 19:16:39 resilient-pi server[4630]: Accept-Encoding: identity
+Oct 16 19:16:39 resilient-pi server[4630]: Host: 127.0.0.1:8080
+Oct 16 19:16:39 resilient-pi server[4630]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:40 resilient-pi server[4630]: Conne
+Oct 16 19:16:40 resilient-pi systemd[1]: resilient-pi.service: Main process exited, code=killed, status=9/KILL
+Oct 16 19:16:40 resilient-pi systemd[1]: resilient-pi.service: Failed with result 'signal'.
+Oct 16 19:16:40 resilient-pi systemd[1]: resilient-pi.service: Consumed 1min 58.708s CPU time, 1.5M memory peak, 0B memory swap peak.
+Oct 16 19:16:42 resilient-pi systemd[1]: resilient-pi.service: Scheduled restart job, restart counter is at 1.
+Oct 16 19:16:42 resilient-pi systemd[1]: Started resilient-pi.service - Resilient Pi C++ HTTP Server.
+Oct 16 19:16:49 resilient-pi server[49557]: Listening on 0.0.0.0:8080
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:49 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:49 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:49 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:49 resilient-pi server[49557]: 
+Oct 16 19:16:49 resilient-pi server[49557]: Received:
+Oct 16 19:16:49 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:49 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1
+Oct 16 19:16:55 resilient-pi server[49557]: Accept-Encoding: identity
+Oct 16 19:16:55 resilient-pi server[49557]: Host: 127.0.0.1:8080
+Oct 16 19:16:55 resilient-pi server[49557]: User-Agent: Python-urllib/3.12
+Oct 16 19:16:55 resilient-pi server[49557]: Connection: close
+Oct 16 19:16:55 resilient-pi server[49557]: 
+Oct 16 19:16:55 resilient-pi server[49557]: Received:
+Oct 16 19:16:55 resilient-pi server[49557]: GET / HTTP/1.1

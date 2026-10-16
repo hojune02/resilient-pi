@@ -1,0 +1,36 @@
+TRUNCATE TABLE
+UPDATE 1
+=== First execution: f05-request-001 ===
+BEGIN
+INSERT 0 1
+ value 
+-------
+     1
+(1 row)
+
+UPDATE 1
+UPDATE 1
+COMMIT
+=== Simulated lost acknowledgement ===
+The first transaction committed, but the client did not receive confirmation.
+=== Retry of the SAME logical operation ===
+BEGIN
+INSERT 0 0
+   request_id    | counter_name | resulting_value 
+-----------------+--------------+-----------------
+ f05-request-001 | safe         |               1
+(1 row)
+
+COMMIT
+=== Final counter state ===
+ name | value 
+------+-------
+ safe |     1
+(1 row)
+
+=== Final idempotency record ===
+   request_id    | resulting_value 
+-----------------+-----------------
+ f05-request-001 |               1
+(1 row)
+

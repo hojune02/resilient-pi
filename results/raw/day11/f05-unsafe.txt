@@ -1,0 +1,27 @@
+UPDATE 1
+=== First execution ===
+BEGIN
+ value 
+-------
+     1
+(1 row)
+
+UPDATE 1
+COMMIT
+=== Simulated lost acknowledgement ===
+The database committed, but the logical client assumes failure.
+=== Retry of the same logical operation ===
+BEGIN
+ value 
+-------
+     2
+(1 row)
+
+UPDATE 1
+COMMIT
+=== Final counter value ===
+  name  | value 
+--------+-------
+ unsafe |     2
+(1 row)
+

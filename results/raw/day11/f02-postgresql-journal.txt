@@ -1,0 +1,6 @@
+Oct 16 19:26:05 resilient-pi systemd[1]: Stopping postgresql@16-main.service - PostgreSQL Cluster 16-main...
+Oct 16 19:26:06 resilient-pi systemd[1]: postgresql@16-main.service: Deactivated successfully.
+Oct 16 19:26:06 resilient-pi systemd[1]: Stopped postgresql@16-main.service - PostgreSQL Cluster 16-main.
+Oct 16 19:26:06 resilient-pi systemd[1]: postgresql@16-main.service: Consumed 3min 13.234s CPU time, 27.3M memory peak, 0B memory swap peak.
+Oct 16 19:26:17 resilient-pi systemd[1]: Starting postgresql@16-main.service - PostgreSQL Cluster 16-main...
+Oct 16 19:26:20 resilient-pi systemd[1]: Started postgresql@16-main.service - PostgreSQL Cluster 16-main.
