@@ -1,3 +1,21 @@
+# Generated binaries and temporary build artifacts
+build/
 server/server
 server/worker_pool
-build/
+*.o
+__pycache__/
+*.py[cod]
+
+# Credentials and developer-local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.pgpass
+
+# Editor files and temporary outputs
+.DS_Store
+.vscode/
+*.swp
+*~
